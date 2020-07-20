@@ -18,18 +18,20 @@ public class EmployeeController {
     List<Employee> all() {
         return repository.findAll();
     }
-    @PostMapping("employees")
+
+    @PostMapping("/employees")
     Employee newEmployee(@RequestBody Employee newEmployee){
+        System.out.println(newEmployee);
         return repository.save(newEmployee);
     }
 
-    @GetMapping("employee/{id}")
+    @GetMapping("/employees/{id}")
     Employee one(@PathVariable Long id){
         return repository.findById(id)
                 .orElseThrow(() -> new EmployeeNotFoundException(id));
     }
 
-    @PutMapping("/employee/{id}")
+    @PutMapping("/employees/{id}")
     Employee replaceEmployee(@RequestBody Employee newEmployee,
                              @PathVariable Long id){
         return repository.findById(id)
@@ -44,7 +46,7 @@ public class EmployeeController {
                 });
     }
 
-    @DeleteMapping("employee/{id}")
+    @DeleteMapping("/employees/{id}")
     void deleteEmployee(@PathVariable Long id) {
         repository.deleteById(id);
     }
