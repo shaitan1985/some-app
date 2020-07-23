@@ -17,11 +17,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 @RestController
 public class EmployeeController {
 
-    private final EmlpoyeeRepository repository;
+    private final EmployeeRepository repository;
     private final EmployeeModelAssembler assembler;
 
 
-    EmployeeController(EmlpoyeeRepository repository, EmployeeModelAssembler assembler){
+    EmployeeController(EmployeeRepository repository, EmployeeModelAssembler assembler){
         this.repository = repository;
         this.assembler = assembler;
     }
